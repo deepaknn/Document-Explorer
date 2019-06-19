@@ -5,3 +5,7 @@
 ## Indexing using solr
 * Indexed the parsed resume data using apache solr
 * Searching over the indexed data
+
+## Clustering using Carrot2
+* Clustered the search result using Carrot2
+* Learned about visualizing the clusters using Carrot2 FoamTree
