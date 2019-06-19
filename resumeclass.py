@@ -126,9 +126,9 @@ class RParser:
 		for i in self.solr.search(query):
 			print(i)
 if __name__ == "__main__":
+	resume = RParser()
 	path='/home/deepaknn/Downloads/resumes/'
 	for filename in os.listdir(path):
-		resume = RParser()
 		#resume.Push(resume.Data('/home/deepaknn/Downloads/Deepak_Resume.docx'))
 		#resume.Retrieve()
 		j=resume.Tojson(resume.Data(path+filename))
