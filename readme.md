@@ -9,3 +9,6 @@
 ## Clustering using Carrot2
 * Clustered the search result using Carrot2
 * Learned about visualizing the clusters using Carrot2 FoamTree
+
+## Visualizing Clusters
+* Visualise clusters using FoamTree
