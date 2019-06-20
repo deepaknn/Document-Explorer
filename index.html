@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FoamTree</title>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <div id="visualization" style="width: 800px; height: 600px"></div>
+    <p id="p"></p>
+    <script src="carrotsearch.foamtree.js"></script>
+    <script>
+      function getData(text)
+       {
+              text = JSON.parse(text.slice(5,text.length-2));
+              //console.log(text["clusters"][0]["labels"]);
+              data = text["clusters"];
+              final=[];
+              data.forEach(function(element) {
+                dict={};
+                dict["label"]=element["labels"];
+                dict["weight"]=element["score"];
+                dict["groups"] = []
+                var no = 0
+                element["docs"].forEach(function(doc){
+                  dict1 = {}
+                  dict1["id"]= no++;
+                  dict1["label"]=doc;
+                  dict["groups"].push(dict1);
+                })
+                final.push(dict);
+                //console.log(element["labels"]);
+
+              });
+              console.log(final);
+              var foamtree = new CarrotSearchFoamTree({
+              id: "visualization",
+              dataObject: {
+                
+                groups: final
+                
+              }
+            });
+              
+       }
+
+      
+      window.addEventListener("load", function() {
+        fetch('http://localhost:8983/solr/resumeparser/clustering?q=*%3A*&wt=json&callback=?&json.wrf=data')
+       .then(function(response) {
+         return response.text();
+        
+       }).then(function(text) {
+          getData(text);
+           
+       })
+      });
+    </script>
+  </body>
+</html>
