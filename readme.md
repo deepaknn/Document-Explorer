@@ -1,4 +1,4 @@
-## Resume parser
+## Document Explorer - Resume Filtering and Clustering Application
 * Parsed resumes in various formats using tika library in python
 * Stored them in postgresql using docker
 
