@@ -12,7 +12,3 @@
 
 ## Visualizing Clusters
 * Visualise clusters using FoamTree
-
-## Implementing Resume Parser
-* Implementing ResumeExplorer in WaveMaker
-* Visualized clusters in WaveMaker
